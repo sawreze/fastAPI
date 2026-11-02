@@ -12,11 +12,9 @@
     "@sveltejs/vite-plugin-svelte": "^7.3.0",
     "svelte": "^5.57.0",
     "vite": "^8.3.0"
-<<<<<<< HEAD
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "svelte-spa-router": "^3.3.0"
-=======
->>>>>>> e0386be075e27750059fc84ad9f9fdc4df450f00
   }
 }
