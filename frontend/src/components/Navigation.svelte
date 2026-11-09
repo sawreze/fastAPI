@@ -1,28 +1,30 @@
 <script>
-    import {link} from 'svelte-svelte-spa-router'
+    import { link } from 'svelte-spa-router' 
 </script>
-<nav class="navber navber-expand-lg navber-light bg-light border-bottom">
-    <div class="container-fluid" href="/">
-        <a use:link class="navbar-brand" href="/">Pyto</a>
+
+<!-- 네비게이션바 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"> 
+    <div class="container-fluid">
+        <a use:link class="navbar-brand" href="/">Pybo</a> 
         <button
-            class="navber-toggler"
+            class="navbar-toggler" 
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="#navberSupportedContent"
+            data-bs-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation">
-        <span class="navbar-toggle-icon"></span>
+            <span class="navbar-toggler-icon"></span> 
         </button>
-        <div class="collase navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a use:link href="/user-create" class="nav-link">회원가입</a>
+                    <a use:link class="nav-link" href="/user-create">회원 가입 </a> 
                 </li>
                 <li class="nav-item">
-                    <a use:link class="nav-link" href="/user-login">로그인</a>
+                    <a use:link class="nav-link" href="/user-login">로그인</a> 
                 </li>
-            </ul>
+            </ul> 
         </div>
-    </div>
+    </div> 
 </nav>
