@@ -2,8 +2,7 @@
     import fastapi from "../lib/api"
     import { link } from "svelte-spa-router"
     import { page } from "../lib/store"
-    import momet from "moment/min/moment-with-locales"
-    import moment from "moment/min/moment-with-locales";
+    import moment from 'moment/min/moment-with-locales' 
     moment.locale('ko')
 
     let question_list = [] 
@@ -25,6 +24,7 @@
 
     $: get_question_list($page)
 </script>
+
 <div class="container my-3">
     <table class="table">
         <thead>
@@ -37,9 +37,12 @@
         <tbody>
         {#each question_list as question, i} 
         <tr>
-            <td>{total- ($page * size) - i}</td> 
+            <td>{ total - ($page * size) - i }</td> 
             <td>
                 <a use:link href="/detail/{question.id}">{question.subject}</a> 
+                {#if question.answers.length > 0 }
+                    <span class="text-danger small mx-2">{question.answers.length}</span> 
+                {/if}
             </td>
             <td>{moment(question.create_date).format("YYYY년 MM월 DD일 hh:mm a")}</td>
         </tr>
@@ -47,7 +50,7 @@
         </tbody>
     </table>
     <!-- 페이징 처리 시작 -->
-    <ul class="pagination justify-content-center">
+    <ul class="pagination justify-content-center"> 
         <!-- 이전 페이지 -->
         <!-- 이전 페이지가 없으면 비활성 -->
         <li class="page-item {$page <= 0 && 'disabled'}">
@@ -65,7 +68,7 @@
         {/each}
         <!-- 다음 페이지 -->
         <li class="page-item {$page >= total_page-1 && 'disabled'}">
-            <button class="page-link" on:click="{() => get_question_list(page+1)}">다음</button>
+            <button class="page-link" on:click="{() => get_question_list($page+1)}">다음</button>
         </li> 
     </ul>
     <!-- 페이징 처리끝 -->

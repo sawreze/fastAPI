@@ -2,6 +2,8 @@
     import fastapi from "../lib/api"
     import Error from "../components/Error.svelte"
     import { push } from "svelte-spa-router"
+    import moment from 'moment/min/moment-with-locales' 
+    moment.locale('ko')    
 
     export let params = {}
     //Detail 컴포넌트를 호출할때 전달한 파라미터 값을 읽으려면 다음과 같이 params 변수를 선언
@@ -44,7 +46,7 @@
             <div class="card-text" style="white-space: pre-line;">{question.content}</div>
             <div class="d-flex justify-content-end">
                 <div class="badge bg-light text-dark p-2"> 
-                    {question.create_date}
+                    {moment(question.create_date).format("YYYY년 MM월 DD일 hh:mm a")}
                 </div> 
             </div>
         </div>
