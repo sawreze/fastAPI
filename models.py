@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, column
 from sqlalchemy.orm import relationship
 
 from database import Base
@@ -20,3 +20,9 @@ class Answer(Base):
     question_id = Column(Integer, ForeignKey("question.id"))
     question = relationship("Question", backref="answers")
 
+class User(Base):
+    __tablename__ = "user"
+    id = Column(Integer, primary_key=True)
+    username = column(String, unique=True, nullable=False)
+    password = Column(String, nullable=False)
+    email = column(String, unique=True, nullable=False)
