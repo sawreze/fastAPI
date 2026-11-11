@@ -2,6 +2,9 @@
     import fastapi from "../lib/api"
     import { link } from "svelte-spa-router"
     import { page } from "../lib/store"
+    import momet from "moment/min/moment-with-locales"
+    import moment from "moment/min/moment-with-locales";
+    moment.locale('ko')
 
     let question_list = [] 
     let size = 10
@@ -22,7 +25,6 @@
 
     $: get_question_list($page)
 </script>
-
 <div class="container my-3">
     <table class="table">
         <thead>
@@ -39,7 +41,7 @@
             <td>
                 <a use:link href="/detail/{question.id}">{question.subject}</a> 
             </td>
-            <td>{question.create_date}</td>
+            <td>{moment(question.create_date).format("YYYY년 MM월 DD일 hh:mm a")}</td>
         </tr>
         {/each} 
         </tbody>
