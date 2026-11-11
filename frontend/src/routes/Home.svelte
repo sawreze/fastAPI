@@ -37,7 +37,7 @@
         <tbody>
         {#each question_list as question, i} 
         <tr>
-            <td>{i+1}</td> 
+            <td>{total- ($page * size) - i}</td> 
             <td>
                 <a use:link href="/detail/{question.id}">{question.subject}</a> 
             </td>
@@ -47,7 +47,7 @@
         </tbody>
     </table>
     <!-- 페이징 처리 시작 -->
-    <ul class="pagination justify-content-center"> 
+    <ul class="pagination justify-content-center">
         <!-- 이전 페이지 -->
         <!-- 이전 페이지가 없으면 비활성 -->
         <li class="page-item {$page <= 0 && 'disabled'}">
