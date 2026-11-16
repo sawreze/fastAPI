@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, column
+from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 
 from database import Base
@@ -23,6 +23,7 @@ class Answer(Base):
 class User(Base):
     __tablename__ = "user"
     id = Column(Integer, primary_key=True)
-    username = column(String, unique=True, nullable=False)
+    username = Column(String, unique=True, nullable=False)
     password = Column(String, nullable=False)
-    email = column(String, unique=True, nullable=False)
+    email = Column(String, unique=True, nullable=False)
+
